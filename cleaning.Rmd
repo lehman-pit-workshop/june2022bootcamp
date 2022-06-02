@@ -163,7 +163,9 @@ penguins_raw |>
      mutate(year = WHAT, sex = WHAT)
 ```
 
-Now continue working on your own for a while.
+Now continue working on your own for a while. 
+The important thing is to work iteratively, always
+checking your partial results.
 
 After we finish this morning's workshop come back
 to this and finish it up. 

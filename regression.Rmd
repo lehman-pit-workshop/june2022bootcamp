@@ -81,5 +81,25 @@ summary(results)
 anova(results)
 ```
 
+Let's use the same process but with two different variables.
+Do the plots and run the regressions.
 
+```{r}
+
+```
+
+```{r}
+
+```
+
+What did you learn?
+
+
+Now create a regression model that puts them all together.
+
+
+
+Challenges of regression:
+- assumes linearity
+- significance tests have important assumptions.
 

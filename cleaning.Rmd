@@ -1,0 +1,173 @@
+---
+title: "Penguin Cleaning"
+output: html_document
+date: '2022-06-02'
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+## Starting off
+
+In R there is "base R" which is what you get when you
+you use the library() function to load additional
+packages that you install.  
+
+One way to make sure that your work is reproducible is
+to keep the details well organized and to record
+exactly what you do and why.  One way to help with this
+is as you go on and, potentially, need to add new libraries
+use the second code chunk to keep track of 
+all the libraries that you use.  This makes it 
+easier for other people who want to reproduce your
+code -- and for yourself when you come back to the
+code months later. 
+
+Use the second chunk for this because you can
+use the first chunk to set any options you want
+for your whole document. 
+
+The code chunk below shows how to load palmerpenguins.
+Also load dplyr, tidyr, skimr, ggplot2, stringr.
+
+```{r}
+library(palmerpenguins)
+
+```
+
+You can learn more about the palmerpenguins
+data by looking at this page https://allisonhorst.github.io/palmerpenguins.
+The penguin package contains two data sets:
+`penguins` and `penguins_raw`.  Use the View() 
+function to look at the two data sets. You can also
+read over the help for the two data sets (`?penguins` `?penguins_raw`  )
+
+Our goal is to go from penguins_raw to a new 
+data set penguins_new that is as close as you can get it 
+to identical to penguins.   We can test if they
+are the same using the code `identical(penguins, penguins_new)`. Create a code chunk at the bottom
+of this file with the test code. That way you
+can periodically run it.   What happens if you run
+that code chunk now?
+
+In the code chunk below create penguins_new from
+the penguins_raw data set.
+
+```{r}
+
+```
+
+
+Let's collaboratively create notes on what 
+needs to be done to clean up the pengins_raw data.  
+
+In the code chunk below use base functions to get
+a sense of the data.  What are some things you notice?
+
+
+```{r}
+
+```
+
+Another way to get a sense of a data set is to use
+the `skim()` function from the skimr package.
+Do that below.
+
+```{r}
+
+```
+
+## Start cleaning
+
+Now, working on cleaning the data.  Let's work both
+independently and collaboratively. 
+
+For cleaning data the tidyverse package dplyr is
+extremely useful.  It makes R work similarly to 
+SQL.
+
+Here are the main "dplyr verbs." (This nice
+summary is copied from Alison Horst's dplyr tutorial.) 
+
+- `filter()`: keep rows that satisfy your conditions
+- `select()`: keep or exclude some columns
+- `rename()`: rename columns
+- `relocate()`: move columns around
+- `mutate()`: add a new column
+- `group_by()` + `summarize()`: get summary statistics by group
+- `across()`: apply a function across columns
+- `count()`: quickly find counts for different groups
+- `case_when()`: like friendly if-else
+
+We'll also want to use various other functions for 
+specific tasks.
+
+Working below in well organized code chunks modify
+your penguins_new file.  (I have started you with
+a few examples.)
+
+Sometimes you may make a mistake. But by carefully
+tracking what you do you can always go back
+and run all of the code, starting at the top
+and get back to the point where you need to fix 
+things. 
+
+Also, dplyr is commonly used with the pipe operator.
+This is really useful, but we while we are working
+it is good to avoid chains that are too long. Long
+pipe chains are hard to debug.
+
+A piping example. Notice that penguins_new
+in the environment doesn't change. 
+
+```{r}
+penguins_new |> 
+     select(-studyName, -`Sample Number`)  
+```
+
+To make it update the penguins_new object, assign
+the code back to the object. After running
+the next chunk, check the data in the environment.
+
+
+```{r}
+penguins_new <- penguins_new |> 
+                select(-studyName, -`Sample Number`) 
+```
+Update the above code chunk to get rid of any other
+columns you don't need.  But be careful.
+
+Now let's try another pretty simple one, rename().
+
+Change the code with some examples. When you 
+have it the way you want, assign your changes
+back to the object.
+
+```{r}
+penguins_new |> rename(newname = oldname)
+```
+
+Don't worry about doing all of them at this 
+point because you can always go back and make
+changes.
+
+The last example I'll include is mutate, which
+you can use to create new variables or modify
+existing variables.
+
+Let's say we want to create year, what do we
+need to do? How can we find a function to do 
+what we want to do?
+
+```{r}
+penguins_raw |>  
+     mutate(year = WHAT, sex = WHAT)
+```
+
+Now continue working on your own for a while.
+
+After we finish this morning's workshop come back
+to this and finish it up. 
+
+As a special challenge, now add a new variable
+to your data set based on data from the raw data that
+is not currently included. 

@@ -1,7 +1,7 @@
 ---
 title: "Penguin Cleaning"
 output: html_document
-date: '2022-06-02'
+date: '2023-01-30'
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -41,27 +41,38 @@ The penguin package contains two data sets:
 function to look at the two data sets. You can also
 read over the help for the two data sets (`?penguins` `?penguins_raw`  )
 
-Our goal is to go from penguins_raw to a new 
-data set penguins_new that is as close as you can get it 
+Our goal is to go from *penguins_raw *to a new 
+data set *penguins_new* that is as close as you can get it 
 to identical to penguins.   We can test if they
-are the same using the code `identical(penguins, penguins_new)`. Create a code chunk at the bottom
-of this file with the test code. That way you
-can periodically run it.   What happens if you run
-that code chunk now?
+are the same using the code `identical(penguins, penguins_new)`.
+You can also use `all.equal(penguins, penguins_new)`. 
+
+This blog post examines the comparison of data frames in much more detail.
+https://sharla.party/post/comparing-two-dfs/ (Worth reading and playing
+with'later.)
+
+
+Towards the bottom of this document there is a code chunk called "test".
+Put your test code into that code chunk.
+That way you can periodically run it as you are working.   
+
+###  What happens if you run that code chunk now?
 
 In the code chunk below create penguins_new from
-the penguins_raw data set.
+the penguins_raw data set using the assignment operator `<-`. 
 
 ```{r}
 
 ```
-
+Now run your test code chunk again.
 
 Let's collaboratively create notes on what 
 needs to be done to clean up the pengins_raw data.  
 
 In the code chunk below use base functions to get
-a sense of the data.  What are some things you notice?
+a sense of the data.  (See slides)
+
+### What are some things you notice?
 
 
 ```{r}
@@ -75,6 +86,8 @@ Do that below.
 ```{r}
 
 ```
+
+### Do you notice anything new? 
 
 ## Start cleaning
 
@@ -167,9 +180,23 @@ Now continue working on your own for a while.
 The important thing is to work iteratively, always
 checking your partial results.
 
-After we finish this morning's workshop come back
-to this and finish it up. 
+### Test code chunk.
+
+```{r test}
+
+
+```
+
+
+
+You will finish this up on your own and push to github. I'll help with that 
+next week, please come with your file ready to push.
 
 As a special challenge, now add a new variable
 to your data set based on data from the raw data that
 is not currently included. 
+
+
+
+
+
